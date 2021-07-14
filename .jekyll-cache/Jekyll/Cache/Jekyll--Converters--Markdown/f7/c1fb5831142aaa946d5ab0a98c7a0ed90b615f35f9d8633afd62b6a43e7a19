@@ -1,0 +1,66 @@
+I"�<dl>
+  <dt>Primitive Type (원시값)</dt>
+  <dd>단순한 데이터 타입
+    <blockquote>
+      <p>Undefined, Null, boolean, 숫자, 문자</p>
+    </blockquote>
+  </dd>
+</dl>
+
+<h3 id="레퍼객체-wrapper-object">레퍼객체 (Wrapper Object)</h3>
+
+<p>숫자 -&gt; Number <br />
+a문자열 -&gt; String <br />
+불리언 -&gt; Boolean<br />
+null,undefined -&gt; 없음<br /></p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">coding</span><span class="dl">'</span><span class="p">;</span> <span class="p">(</span><span class="nx">내부적으로</span> <span class="nx">str</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="dl">'</span><span class="s1">coding</span><span class="dl">'</span><span class="p">);)</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="p">.</span> <span class="nb">Object</span> <span class="nx">access</span> <span class="nx">Operator</span><span class="p">(</span><span class="nx">객체</span> <span class="nx">접급</span> <span class="nx">연산자임</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="c1">//문자열을 제어하기 위해서 문자열이 객체인것처럼 동작해야함.</span>
+<span class="c1">//사용이 끝난 객체는 원래의 원시 데이터 타입으로 돌려주는 작업을 함. </span>
+
+<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span><span class="dl">'</span><span class="s1">coding</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">str</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">everybody</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//문자열을 객체처럼 사용하려고 하면 객체화 시킴.(Wrapper object)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">prop</span><span class="p">);</span> <span class="c1">//undefined</span></code></pre></figure>
+
+<dl>
+  <dt>Reference Type(참조값)</dt>
+  <dd>여러 값으로 구성되는 객체를 가르킴
+    <blockquote>
+      <p>메모리에 저장된 객체 
+자바스크립트는 메모리 위치에 직접 접근하는것을 허용하지않음, 따라서 해당 객체에 대한 참조를 조작하는것임.</p>
+    </blockquote>
+  </dd>
+</dl>
+
+<ul>
+  <li>변수b를 만들면서 a를 할당하는 구문 -&gt; primitive type이나 reference type이나 동작자체는 동일함</li>
+</ul>
+
+<p>a값을 복사해서 b에다가 집어넣음 
+다른건 a가 무엇을 들고있느냐이다.</p>
+
+<p>a에 오브젝트를 할당하면 a에 오브젝트를 가르키는 주소값을 할당하게된다.그럼여기에서는 a가 가지고 x는1이다 라는 값을 가지고 있는 값은 어디에있는지에 대한 주소이다.</p>
+
+<p>자바스크립트에서 변수가 이동을 할때는 항상 값을 복사하게 된다. 
+복사하는 대상이 값 전체인지 아니면 해당값을 가르키는 주소값을 복사하게된다.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//Primitive Type</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 11</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 1</span>
+
+<span class="c1">// References</span>
+
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="na">x</span> <span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="c1">//11</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="c1">//11</span></code></pre></figure>
+
+:ET

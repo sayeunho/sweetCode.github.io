@@ -1,0 +1,55 @@
+I"�<h3 id="property">Property</h3>
+
+<blockquote>
+  <p>데이터 구조와 연관된 속성을 나타냄</p>
+</blockquote>
+
+<ul>
+  <li>프로퍼티 접근방법 [대괄호 혹은 . 으로 접근]</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">purple haze</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">[</span><span class="dl">"</span><span class="s2">length</span><span class="dl">"</span><span class="p">];</span> <span class="c1">//11</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">//11</span></code></pre></figure>
+
+<ul>
+  <li>객체.신규key = 값 or 메서드 : 마침표를 이용해 신규 프로퍼티 추가</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">prop_01</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">method_01</span> <span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">func_01</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">myObj</span><span class="p">.</span><span class="nx">prop_02</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> 
+<span class="nx">myObj</span><span class="p">.</span><span class="nx">method_02</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="k">return</span> <span class="dl">'</span><span class="s1">func_02</span><span class="dl">'</span><span class="p">};</span></code></pre></figure>
+
+<ul>
+  <li>객체[‘신규key’] = 값 or 메서드</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">myObj</span><span class="p">[</span><span class="dl">'</span><span class="s1">prop_03</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">myObj</span><span class="p">[</span><span class="dl">'</span><span class="s1">method_03</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">func_03</span><span class="dl">'</span>
+<span class="p">};</span></code></pre></figure>
+
+<ul>
+  <li>동적 프로퍼티 삭제 (delete 객체.key  : 도트(.) 접근법을 이용해 프로퍼티를 삭제한다.)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//prop_03, method_03 삭제 </span>
+<span class="k">delete</span> <span class="nx">myObj</span><span class="p">.</span><span class="nx">prop_03</span><span class="p">;</span> 
+<span class="k">delete</span> <span class="nx">myObj</span><span class="p">.</span><span class="nx">method_03</span><span class="p">;</span> <span class="c1">//삭제 확인 console.log(myObj); </span></code></pre></figure>
+
+<ul>
+  <li>동적 프로퍼티 삭제 (delete 객체[‘key’]: [] 접근법을 이용해서프로퍼티 삭제)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//prop_02, method_02 삭제</span>
+<span class="k">delete</span> <span class="nx">myObj</span><span class="p">[</span><span class="dl">'</span><span class="s1">prop_02</span><span class="dl">'</span><span class="p">];</span> 
+<span class="k">delete</span> <span class="nx">myObj</span><span class="p">[</span><span class="dl">'</span><span class="s1">method_02</span><span class="dl">'</span><span class="p">];</span> 
+<span class="c1">//삭제 확인</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span></code></pre></figure>
+:ET

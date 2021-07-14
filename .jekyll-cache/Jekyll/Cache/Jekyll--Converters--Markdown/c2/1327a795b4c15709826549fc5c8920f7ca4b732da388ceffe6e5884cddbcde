@@ -1,0 +1,93 @@
+I"�.<h2 id="연산자">연산자</h2>
+
+<h3 id="1-string-concatenation-문자열-연결">1. String concatenation (문자열 연결)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">my</span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">cat</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`string literals: 1 + 2 = </span><span class="p">${</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+<h3 id="2-numeric-operators-숫자-연산자">2. Numeric operators (숫자 연산자)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">//add</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">//substract</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">//divide</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">//multiply</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>   <span class="c1">//remainder</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">);</span>  <span class="c1">//exponentiation</span>
+</code></pre></div></div>
+
+<h3 id="3-increment-and-decrement-operators증가감소-연산자">3. Increment and decrement operators(증가감소 연산자)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">preIncrement</span> <span class="o">=</span> <span class="o">++</span><span class="nx">counter</span><span class="p">;</span>
+        <span class="nx">counter</span> <span class="o">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">preIncrement</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">postIncrement</span> <span class="o">=</span> <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">postIncrement</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">;</span>
+        <span class="nx">counter</span> <span class="o">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>    
+</code></pre></div></div>
+
+<h3 id="4-assignment-operators">4. Assignment operators</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+   <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+   <span class="nx">x</span> <span class="o">+=</span> <span class="nx">y</span><span class="p">;</span>
+   <span class="nx">x</span> <span class="o">-=</span> <span class="nx">y</span><span class="p">;</span>
+   <span class="nx">x</span> <span class="o">*=</span> <span class="nx">y</span><span class="p">;</span>
+   <span class="nx">x</span> <span class="o">/=</span> <span class="nx">y</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="5-comparison-operators비교연산자">5. Comparison operators(비교연산자)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="logical-operators--or--and--not">logical operators: || (or), &amp;&amp; (and), ! (not)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">value1</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">value2</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// || (or), value 가 true 인것을 찾아라</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`or: </span><span class="p">${</span><span class="nx">value1</span> <span class="o">||</span> <span class="nx">value2</span> <span class="o">||</span> <span class="nx">check</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
+
+     <span class="c1">// &amp;&amp; (and), value 가 true 인것을 찾아라</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`and: </span><span class="p">${</span><span class="nx">value1</span> <span class="o">&amp;&amp;</span> <span class="nx">value2</span> <span class="o">&amp;&amp;</span> <span class="nx">check</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
+
+    <span class="kd">function</span> <span class="nx">check</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">!!!!</span><span class="dl">'</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> 
+
+</code></pre></div></div>
+
+<h3 id="equality">Equality</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">stringFive</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">numberFive</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// == loose equality, with type conversion</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringFive</span> <span class="o">==</span> <span class="nx">numberFive</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringFive</span> <span class="o">!=</span> <span class="nx">numberFive</span><span class="p">);</span>
+
+    <span class="c1">//=== Strict equality, no type conversion</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringFive</span> <span class="o">===</span> <span class="nx">numberFive</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringFive</span> <span class="o">!==</span> <span class="nx">nuberFive</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h3 id="conditional-operators-if">Conditional operators: if</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">eunho</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">eunho</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">welcome eunho</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">coder</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">you are amazing coder</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">unkwnon</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="ternary-operator-">Ternary operator: ?</h3>
+<blockquote>
+  <p>console.log (name === ‘eunho’ ? ‘yes’:’no’);</p>
+</blockquote>
+
+:ET

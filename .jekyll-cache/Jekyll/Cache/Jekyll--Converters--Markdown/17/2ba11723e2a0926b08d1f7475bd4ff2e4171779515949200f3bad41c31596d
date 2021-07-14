@@ -1,0 +1,78 @@
+I"�<h2 id="자료형-확인방법">자료형 확인방법</h2>
+
+<ul>
+  <li>1.typeOf
+    <blockquote>
+      <p>typeof는 함수가 아닌 연산자이다. 즉, 괄호를 사용하지 않고 !value, ~value와 같이 사용할 수 있는 단항 연산자이다.<br /></p>
+      <h3 id="단-null-은-하나의-object로-인식하기-때문에-typeof를-통해-타입을-확인하면-object가-반환됨">단 null 은 하나의 object로 인식하기 때문에 typeof를 통해 타입을 확인하면 object가 반환됨.</h3>
+    </blockquote>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">typeof</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// === 'number' </span>
+<span class="k">typeof</span> <span class="dl">'</span><span class="s1">str</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// === 'string' </span>
+<span class="k">typeof</span> <span class="p">{};</span> <span class="c1">// === 'object' </span>
+<span class="k">typeof</span> <span class="p">[];</span> <span class="c1">// === 'object' </span>
+<span class="k">typeof</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{};</span> <span class="c1">// === 'function' </span>
+<span class="k">typeof</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// === 'object'</span>
+
+<span class="o">*</span> <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">object</span><span class="dl">"</span> <span class="c1">//true</span>
+
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">value</span> <span class="o">!==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">object</span><span class="dl">"</span></code></pre></figure>
+
+<ul>
+  <li>2.instanceof
+    <blockquote>
+      <p>instanceof 는 비교 연산자로 &gt;,&lt;,== 와 같이 두개의 인자를 받는 연산자로 앞의 비교 연산자들을 이용하는 기분으로 사용하면 된다.(다항연산자)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span> 
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">unikys</span><span class="dl">"</span><span class="p">;</span> 
+<span class="p">};</span> 
+<span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="kc">true</span> <span class="k">instanceof</span> <span class="nb">Boolean</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="kc">true</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">;</span> <span class="c1">// === true </span>
+<span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// === true </span>
+<span class="kd">var</span> <span class="nx">color1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">);</span> 
+<span class="kd">var</span> <span class="nx">color2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">;</span> 
+<span class="nx">color1</span> <span class="o">==</span> <span class="nx">color2</span><span class="p">;</span> <span class="c1">// === true</span>
+
+<span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">.</span><span class="kd">constructor</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nb">String</span><span class="p">;</span> <span class="c1">// === true?!</span></code></pre></figure>
+
+<blockquote>
+  <p>object literal인 []와 {}에 대해서 typeof는 둘다 object를 리턴했지만, 
+instanceof는 각각 Array와 Object를 리턴한 것도 관심을 가져야할 결과이다.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">.</span><span class="kd">constructor</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span> <span class="c1">// === false </span>
+<span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nb">String</span><span class="p">;</span> <span class="c1">// === true?!</span>
+
+
+<span class="nb">String</span> 
+<span class="kd">function</span> <span class="nb">String</span><span class="p">()</span> <span class="p">{</span> <span class="p">[</span><span class="nx">native</span> <span class="nx">code</span><span class="p">]</span> <span class="p">}</span></code></pre></figure>
+
+<blockquote>
+  <p>크롬에서 String을 실행하면 위와같이 나온다. <br />
+“foo”.constructor 는 Function의 instance인 것이다. instance의 개념에 대해서 다시한번 돌이켜보면 어쩌면 당연한 결과이기도 하다. <br />
+즉, String 자체는 Function의 instance인 것이다.
+이렇게 살펴보면 결국 두가지의 연산자는 각각 다른 용도로 활용하면 될 것이다.<br /> 
+primitive type을 구분할 때에는 typeof를 사용하고 클래스의 타입을 구분할 때에는 instanceof를 사용하면 된다.</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>3.constructor</p>
+  </li>
+  <li>
+    <p>4.Object.prototype.toString.call(obj) === ‘[object type]’</p>
+  </li>
+</ul>
+
+:ET

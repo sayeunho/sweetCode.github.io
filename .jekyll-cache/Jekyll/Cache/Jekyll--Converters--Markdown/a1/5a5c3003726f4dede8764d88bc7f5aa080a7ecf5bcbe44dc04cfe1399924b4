@@ -1,0 +1,52 @@
+I"�<h3 id="매개변수">매개변수</h3>
+
+<ul>
+  <li>매개변수에 값이 없거나 undefined가 전달될 경우 이름붙은 매개변수를 기본값으로 초기화 할수있다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">addTen</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">num</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="nx">retunr</span> <span class="nx">num</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">addTen</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span> <span class="c1">// 20 변동없음</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">//30 </span></code></pre></figure>
+
+<ul>
+  <li>addTen이 넘겨받은 매개변수 num은 지역변수임.
+코드 실행시 count가 매개변수로 전달됨. <br />
+이때 변수의 값은 20이었는데 이값이 매개변수 num 에 복사되어 addTen() 내부에서 쓰입니다. <br />
+전달된 값이 원시값이기 때문에 기존값은 변경이 없음.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Nicholas</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//Nicholas</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span><span class="dl">"</span><span class="s2">Nicholas</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+  <span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Greg</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">setName</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//nicholas</span></code></pre></figure>
+
+<blockquote>
+  <p>person을 setName()에 전달하면 name 프로퍼티에 nicholas가 저장됨.
+그런다음 변수 obj는 새객체를 가르킴 새객체의 name프로퍼티가 greg를 저장함.</p>
+</blockquote>
+
+:ET

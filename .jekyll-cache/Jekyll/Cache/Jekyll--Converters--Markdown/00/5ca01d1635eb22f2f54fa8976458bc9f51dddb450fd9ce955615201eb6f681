@@ -1,0 +1,37 @@
+I"�<h2 id="데이터-타입">데이터 타입</h2>
+
+<h3 id="primitive-type">primitive type</h3>
+
+<ul>
+  <li>더이상 나누어질수없는 한가지 아이템 : number, string, boolean, null, undefiend, symbol
+    <h4 id="number">number</h4>
+    <p>int, short등의 숫자의 데이터 타입을 지정할 필요없이 number 하나로 지정이 가능함.</p>
+  </li>
+</ul>
+
+<h4 id="string">String</h4>
+<p>const char = ‘c’;
+const eunho = ‘eunho’;
+const greeting = ‘hello’ + eunho;
+console.log(<code class="language-plaintext highlighter-rouge">value: ${greeting}, type: ${typeof greeting}</code>);
+const helloBob = <code class="language-plaintext highlighter-rouge">hi ${eunho}!</code>; //백틱으로 연결도 가능함.
+console.log(<code class="language-plaintext highlighter-rouge">value: ${helloBob}, type: ${typeof helloBob}</code>);</p>
+
+<h4 id="boolean">boolean</h4>
+<p>const canRead = true;
+const test = 3 &lt; 1; //false</p>
+
+<h4 id="null">null</h4>
+<ul>
+  <li>텅빈 값임을 선언해준것임 
+let nothing = null;
+console.log( <code class="language-plaintext highlighter-rouge">value:${nothing}, type: ${typeof noting}</code>);</li>
+</ul>
+
+<h4 id="undefined">undefined</h4>
+<p>let x; //변수에 해당값을 지정하지 않은 경우
+console.log(<code class="language-plaintext highlighter-rouge">value: ${x}, type: ${type x}</code>);</p>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll.</p>
+
+:ET

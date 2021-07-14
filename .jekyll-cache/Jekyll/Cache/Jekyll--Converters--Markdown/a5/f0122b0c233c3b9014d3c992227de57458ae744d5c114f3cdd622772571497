@@ -1,0 +1,75 @@
+I"�<p>하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 구성블록 중 하나입니다.
+함수는 호출하고자 하는 범위 내에서 함수를 정의 해야만 합니다.</p>
+
+<h3 id="9-재귀함수">9. 재귀함수</h3>
+
+<ul>
+  <li>자신을 호출하는 함수.</li>
+</ul>
+
+<h4 id="재귀의-3가지-중요한-특성">재귀의 3가지 중요한 특성</h4>
+<ul>
+  <li>종료조건 : 재귀가 계속해서 동작하는 것을 방지
+    <blockquote>
+      <p>if(나쁜값이 들어왔다면) {정지!!};</p>
+    </blockquote>
+  </li>
+  <li>기반조건(Base case) : 재귀함수의 목적과도 같다.
+    <blockquote>
+      <p>if(이런일이 일어난다면) {성공!!}</p>
+    </blockquote>
+  </li>
+  <li>재귀 : 자기자신을 호출하는것
+    <blockquote>
+      <p>return x * factorial(x -1);</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//종료 조건</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+  <span class="c1">//기반 조건</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="o">===</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">//재귀</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="c1">// 6</span>
+</code></pre></div></div>
+<ol>
+  <li>함수 호이스팅
+    <ul>
+      <li>함수 선언문 형태로 정의한 함수의 유효범위는 코드의 맨 처음 부터이다. 이를 함수 호이스팅이라고한다.</li>
+      <li>이와같은 이유로 함수 표현식을 권장하고있다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>before</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">//5</span>
+
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// 7</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>after</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">//uncaught type error</span>
+<span class="kd">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

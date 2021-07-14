@@ -1,0 +1,243 @@
+I"GW<p>하나의 특별한 목적의 작업을 수행하도록 설계된 독립적인 구성블록 중 하나입니다.
+함수는 호출하고자 하는 범위 내에서 함수를 정의 해야만 합니다.</p>
+
+<ul>
+  <li>fundamental building block in the program (프로그램의 기본 구성요소)</li>
+  <li>subprogram can be used multiple times (서브프로그램) <br />
+[프로그램 안에서 또 작은 각각의 기능들을 수행함. 여러번 재사용이 가능함.]</li>
+  <li>
+    <p>performs a task or calculates a value(작업을 수행하거나 값을 계산한다)</p>
+  </li>
+  <li>input 과 ouput이 중요하고 function의 이름을 잘 정하는 것이 굉장히 중요하다.</li>
+</ul>
+
+<h3 id="1function-declaration-함수선언">1.Function declaration (함수선언)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">함수이름</span><span class="p">(</span><span class="nx">매개변수1</span><span class="p">,</span> <span class="nx">매개변수2</span><span class="p">,...)</span> <span class="p">{</span>
+
+    <span class="nx">함수가</span> <span class="nx">호출되었을</span> <span class="nx">때</span> <span class="nx">실행하고자</span> <span class="nx">하는</span> <span class="nx">실행문</span><span class="p">;</span>
+  
+  <span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>하나의 함수는 <strong>하나의 기능</strong>만 구현한다. (one function === one thing)</li>
+  <li>함수의 네이밍은 동사형태로 이름을 지어야 한다 (ex)naming: doSomething)</li>
+  <li>
+    <p>함수는 Object이다.(function is object in JS)</p>
+  </li>
+  <li>함수 선언식방법</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//구현부 (매개변수에 타입을 지정할 필요가없다.) </span>
+    <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//호출부</span>
+    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">sayEunho!!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+
+    
+</code></pre></div></div>
+<ul>
+  <li>함수 표현식
+    <ul>
+      <li>변수에 함수를 할당하는 것이기 때문에 세미콜론을 찍어줘야함</li>
+      <li>변수의 이름으로만 호출이 가능함
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">gugudan</span> <span class="o">=</span> <span class="nx">fucntion</span> <span class="nx">dan</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">gugudan</span><span class="dl">"</span><span class="p">);</span>
+ <span class="p">};</span>
+ <span class="nx">gugudan</span><span class="p">();</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>타입스크립트의 함수 선언(함수의 인터페이스만 봐도 무엇을 하고 전달되어야하는 파라메터의 데이터 타입을 확실하게 확인하고 쓸수있기때문에 )</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">:</span><span class="nx">number</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="2parameters">2.Parameters</h3>
+<ul>
+  <li>premitive parameters : passed by value (메모리에 value가 그대로 전달이 됨)</li>
+  <li>object parameters: passed by reference (ref)주소값을 참조하게됨 (메모리에 주소값을 저장함)</li>
+  <li>배열이나 객체로도 전달가능함.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//매개변수로 전달된 값을 무조건 coder로 변경하는 일을 하는 함수</span>
+  <span class="kd">function</span> <span class="nx">changeName</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">coder</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//해당 오브젝트가 메모리에는 바로 해당 오브젝트가 만들어진 주소값이 들어가게되고 레퍼런스는 엘리를 가르키게 된다. </span>
+  <span class="kd">const</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ellie</span><span class="dl">'</span><span class="p">};</span> 
+  <span class="nx">changeName</span><span class="p">(</span><span class="nx">ellie</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ellie</span><span class="p">);</span>
+
+<span class="c1">//오브젝트는 레퍼런스로 전달되기떄문에 함수안에서 오브젝트의 값을 변경하게 되면 그변경된 사항이 그대로 메모리에 전달됨</span>
+
+
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//dosomething이 가르치는 함수와 add가 가르키는 부분이 같다</span>
+<span class="kd">const</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="nx">add</span> <span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">doSomething</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 5</span>
+
+<span class="kd">const</span> <span class="nx">result2</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">);</span> <span class="c1">// 5</span>
+
+
+<span class="c1">//배열로 전달하는예제</span>
+<span class="kd">function</span> <span class="nx">printArr</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="dl">"</span><span class="s2">는</span><span class="dl">"</span> <span class="o">+</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="dl">"</span><span class="s2">원 입니다.</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="p">}</span>
+<span class="nx">printArr</span><span class="p">([</span><span class="dl">'</span><span class="s1">paper</span><span class="dl">'</span><span class="p">,</span><span class="mi">1000</span><span class="p">]);</span>
+<span class="c1">//객체로 전달하는 예제</span>
+<span class="kd">function</span> <span class="nx">printObj</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="dl">"</span><span class="s2">은</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">price</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">원 입니다.</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">printObj</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span><span class="mi">3000</span><span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="3-default-parametersadded-in-es6">3. Default parameters(added in ES6)</h3>
+
+<h4 id="before">before</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//매개변수가 1개일때 from은 undefined로 호출됨</span>
+  <span class="kd">function</span> <span class="nx">showMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="k">from</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">from</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">from</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">unknown</span><span class="dl">'</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2"> by </span><span class="p">${</span><span class="k">from</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">showMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi</span><span class="dl">'</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h4 id="after">after</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="kd">function</span> <span class="nx">showMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="k">from</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">eunho</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2"> by </span><span class="p">${</span><span class="k">from</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">showMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi</span><span class="dl">'</span><span class="p">);</span>
+
+</code></pre></div></div>
+<ul>
+  <li>함수의 이름은 함수자체를 가르키고있는아이다 이름은 함수를 가르키고있는 주소를 가지고있음. <br />
+함수를 호출하기위해서는 괄호를 이용해서 필요한 데이터를 전달하면된다.</li>
+</ul>
+
+<h3 id="4rest-parameters-added-in-es6">4.Rest parameters( added in ES6)</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">///...으로 전달하면 배열로 전달됨</span>
+<span class="kd">function</span> <span class="nx">printAll</span><span class="p">(...</span><span class="nx">args</span><span class="p">){</span>  
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">printAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">eunho</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">nice to meet you</span><span class="dl">'</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h3 id="5-local-scope">5. Local scope</h3>
+
+<h2 id="밖에서는-안이-보이지-않고-안에서만-밖을-볼수있다">밖에서는 안이 보이지 않고 안에서만 밖을 볼수있다.</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">globalMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//global variable (전역변수)</span>
+  <span class="kd">function</span> <span class="nx">printMessage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">//local variable(지역변수)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalMessage</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">printAnother</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">childMessage</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">printMessage</span><span class="p">();</span>
+</code></pre></div></div>
+<p>[함수의 범위]</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 전역변수</span>
+<span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nx">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Chamahk</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// 이 함수는 전역 범위에서 정의됩니다.</span>
+<span class="kd">function</span> <span class="nx">multiply</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num1</span> <span class="o">*</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">multiply</span><span class="p">();</span> <span class="c1">// Returns 60</span>
+
+
+<span class="kd">function</span> <span class="nx">getScore</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">add</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> scored </span><span class="dl">"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">add</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">getScore</span><span class="p">();</span> <span class="c1">// Returns "Chamahk scored 5"</span>
+
+</code></pre></div></div>
+
+<h3 id="6-retune-a-value">6. Retune a value</h3>
+<ul>
+  <li>함수에 return이 없는것은 retunr undefined 와 같고 생략이 가능하다.</li>
+  <li>조건이 맞지않을때는 빨리 return하는것이 좋다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h3 id="7function-expression">7.Function expression</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//함수에 이름이 없는것(anonymous function)</span>
+<span class="kd">const</span> <span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">print</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">print</span><span class="p">();</span>
+<span class="c1">//다른 변수에도 할당이 가능함.</span>
+<span class="kd">const</span> <span class="nx">printAgain</span> <span class="o">=</span> <span class="nx">print</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="8arrow-functionanonymous">8.Arrow function(anonymous)</h3>
+<blockquote>
+  <p>const simplePrint = ()  =&gt; console.log(‘simplePrint’); <br />
+const add = (a, b) =&gt; a + n</p>
+</blockquote>
+
+<h3 id="quiz">quiz</h3>
+
+<h2 id="q-function-calculatecommand-a-b">Q. function calculate(command, a, b)</h2>
+<p>-command: add,substract,divide</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">function</span> <span class="nx">calculate</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">add</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">substract</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">divide</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span><span class="p">;</span>  
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">calculate</span><span class="p">(</span><span class="dl">'</span><span class="s1">add</span><span class="dl">'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+
+</code></pre></div></div>
+
+:ET
