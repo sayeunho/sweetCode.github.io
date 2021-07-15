@@ -1,0 +1,28 @@
+I"8<h2 id="framework란">Framework란?</h2>
+<ul>
+  <li>특정형태의 소프트웨어 문제를 해결하기 위해 상호 협력하는 클래스 프레임과 인터페이스프레임의 집합.</li>
+  <li>특정한 틀을 만들고 거기에 살을 붙여 놓음으로써 프로그램을 만들어 작업시간을 줄여주는것.</li>
+  <li>개발자의 자율르 제한하기 위해 프레임워크를 도입함.인</li>
+</ul>
+<details>
+<summary>더보기</summary>
+<div>
+    <p>인터페이스란?</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 중복성을 최소화하는것. 동일한 코드를 반복해서 작성하지 않는것을 말함.
+- 인터페이스는 상수와 행동만으로 구성함.어떤 객체의 클래스를 만들때 공통적으로 사용되는 상수와 메서드를 코드의&lt;br&gt;
+  중복성을 최소화하기위해 인터페이스로 정의하는것.
+</code></pre></div>    </div>
+
+    <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="kp">public</span> <span class="n">interface</span> <span class="no">VendingMachine</span> <span class="p">{</span>
+        <span class="kp">public</span> <span class="n">int</span> <span class="no">ITEM_CATEGORY</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="sr">//</span><span class="err">물품</span> <span class="err">종류의</span> <span class="err">수</span>
+
+        <span class="kp">public</span> <span class="n">void</span> <span class="n">moneyln</span><span class="p">();</span> <span class="sr">//</span><span class="err">자판기에</span> <span class="err">돈을</span> <span class="err">넣는다</span><span class="p">.</span>
+        <span class="nf">public</span> <span class="n">void</span> <span class="n">seelctItem</span><span class="p">();</span> <span class="sr">//</span><span class="err">물품을</span> <span class="err">선택한다</span><span class="o">.</span>
+
+    <span class="p">}</span></code></pre></figure>
+
+  </div>
+</details>
+
+:ET

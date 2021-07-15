@@ -1,0 +1,18 @@
+I"�<h2 id="framework란">Framework란?</h2>
+<ul>
+  <li>특정형태의 소프트웨어 문제를 해결하기 위해 상호 협력하는 클래스 프레임과 인터페이스프레임의 집합.</li>
+</ul>
+<details>
+<summary>더보기</summary>
+<div>
+    <p>인터페이스란?</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 중복성을 최소화하는것. 동일한 코드를 반복해서 작성하지 않는것을 말함.
+- 인터페이스는 상수와 행동만으로 구성함.
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll.</p>
+
+:ET
