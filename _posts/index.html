@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 함수나 변수를 전역공간에 만들면 => 어딘가 보관합니다.(window)
+    'use strict';
+    //console.log(this); //{window}
+
+    function 함수() {
+        console.log(this); //undefined
+    }
+
+    함수();
+    window.함수();
+    //object내 함수안에서 this를 쓰면  동작하고있는 object (나를포함하고있는 object)
+
+    var 오브젝트 = {
+        data: 'kim',
+        함수 : function () {
+            console.log(this); //여기서 this는 그 함수를 가지고 있는 오브젝트를 뜻함
+        }
+    }
+    
+    var 오브젝트1 = {
+        data : {
+            함수: () => {
+                console.log(this);//arrow function은 this값을 함수밖에 있던거를 그대로 씀
+            }
+        }
+    }
+    오브젝트1.data.함수();
+
+    오브젝트.data;
+    오브젝트.함수();
+
+    var 어쩌구 = {}
+
+    function 기계 () {
+        this.이름 = 'kim' //새로생성되는 object 
+    }
+</script>
+</html>

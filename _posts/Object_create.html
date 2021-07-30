@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //상속기능을 구현하는 방법(es5)
+    //Object.create(프로토타입object);
+
+    /*var 부모 = { name : 'Kim', age : 50 };
+    var 자식  = Object.create(부모);
+
+    자식.age = 20;
+
+    var 손자 = Object.create(자식);
+    
+    손자.age;
+    
+    //es6방식
+    class 부모 {
+        constructor(aaaa){
+            this.name = aaaa;
+            this.sayHi = function(){
+                console.log('hello');
+            }
+        }
+        sayHi(){
+            console.log('hi'); //여기에 쓰면 부모 프로퍼티에 추가됨(모든자식들이 곹옹으로 쓸수있음)
+        }
+        sayHello(){
+            console.log('hi'); //여기에 쓰면 부모 프로퍼티에 추가됨(모든자식들이 곹옹으로 쓸수있음)
+        }
+    }
+
+   
+    var 자식 = new 부모('dddd');
+    자식.__proto__;
+    Object.getPrototypeOf(자식);*/
+
+
+
+
+    class 할아버지 {
+        constructor(name){
+            this.성 = 'Kim';
+            this.이름 = name;
+        }
+        sayHi(){
+            console.log('안녕저는 할아버지예요');
+        }
+    }
+    //할아버지가 가지고 있는 속성을 그대로 물려받아서
+    class 아버지 extends 할아버지 {
+        constructor(name){
+            super(name);//부모의 constructor를 그대로 가져다 쓰는격
+            this.나이 = 50; // extends해서 만든 class는 this 그냥 사용못함 
+        }
+        sayHi(){
+            console.log('안녕저는 아버지예요');
+            super.sayHi();//부모프로토타입을 의미함 
+        }
+    }
+    var 할아버지1 = new 할아버지('만덕');
+    var 아버지1 = new 아버지('준');
+
+</script>
+</html>

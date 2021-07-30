@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //부모
+    //constructor(일종의 objcet)를 만들면 prototype(유전자) 이라는 공간이 자동으로 생성됨
+    function 기계(이름) {
+        this.name = 이름;
+        this.age = 15;
+        this.sayHi = function(){
+            console.log('안녕하세요' + this.name +'입니다.');
+        }
+    }
+
+    //constructor를 만들면 prototype(유전자) 이라는 공간이 자동으로 생성됨(모든값을 자식이 물려받기가 가능함)
+    기계.prototype.gender = '여';
+
+    // 이행위자체를 상속이라고한다.
+    //자식(위에 prototype을 통해서도 물려받을수있음)
+    var 학생1 = new 기계('Park');
+    var 학생2 = new 기계('Kim');
+
+    console.log(학생1.gender);
+
+
+    //prototype의 동작원리
+    학생1.name;
+    학생1.toString(); //(object/array에 붙일수 있는 내장함수);
+    //1.학생1이 직접 name을 가지고있는가? - 없네?
+    //2.학생1의 부모유전자를 검사함 - 있으면 출력해주고 없으면 그위의 부모를 검사함
+
+
+    var arr = [1,2,3]
+    var arr = new Array(1,2,3); //실제 array가 만들어지는 방식
+    var obj = { name: 'Kim'};
+    var obj = new Object(); //object부모를 이용해서 이렇게 만든다.
+    //arr에 sort이런거 부여한적 없음. 근데 쓸수있는 이유는 arr의 부모유전자가 sort를 가지고 있음.
+    //arr.sort();
+    //arr.map();
+    //arr.push();
+
+
+    //1.prototype은 함수에만 생성됨
+    //2.__proto__를 이용해 부모를 강제 등록할수잇음
+    학생1.__proto__//(내 부모 유전자를 검사하고싶을때 __proto__)
+    var 부모 = {name : 'kim'};
+    var 자식 = {};
+    자식.__proto__ = 부모;
+    자식.name;
+
+    //콘솔창에서 알려주는 prototype chain
+    
+</script>
+</html>

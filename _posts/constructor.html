@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        -object를 마구 복사하고 싶을때 사용합니다.
+        - 비슷한 object 여러개 만들때 consructor사용
+    -->
+</body>
+<script>
+    //이렇게 만들면 각각 오브젝트가 만들어지는게 아니고 값을 서로 공유하기 때문에 안됨
+    var 사람 =  { name: 'Kim'};
+    var 사람2 =  사람;
+
+    //예시 출석부
+    /*var 학생1 = {
+        name : 'Kim', 
+        age : 15,
+        sayHi() {
+            console.log('안녕하세요' + this.name + '입니다.');
+        }
+    }*/
+
+    // 학생1.sayHi();
+    //이것이 constructor (오브젝트의 복사를 도와준다. object를 생성하는 기계)
+    function Student (이름,나이) {
+        this.name = 이름;    //this는 새로 생성되는 object를 뜻함
+        this.age = 나이;
+        this.sayHi = function(){
+            console.log('안녕하세요' + this.name + '입니다.');
+        }
+
+    }
+    var 학생1 = new Student('Park',15); //이러면  object가 생성됨
+    var 학생2 = new Student('Kim',16); //이러면  object가 생성됨
+    //this: 새로생성되는 object(instance)
+
+
+    //ex 쇼핑몰에 쓸 상품데이터를 오브젝트로 여러개 만들고 싶습니다.
+    function product(name,price) {
+        this.name = name;
+        this.price = price;
+        this.부가세 = function(){
+            console.log(this.price * 0.1);
+        }
+    }
+
+    var product1 = new product('shirts', 50000);
+    var product2 = new product('pants', 60000);
+    console.log(product1);
+    console.log(product2);
+</script>
+</html>
