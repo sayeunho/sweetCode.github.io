@@ -10,23 +10,42 @@
     
 </body>
 <script>
-    function solution(array, commands) {
+
+function solution(array, commands) {
     var answer = [];
-    var i = 0;
-    var j = 0;
-    var k = 0;
-    for (var m = 0; m < commands.length; m++) {
-        i = commands[m][0]
-        j = commands[m][1]
-        k = commands[m][2]
-        
-        var sliced = array.slice(i-1,j)
-        var sorted = sliced.sort((a,b) => a - b)
-    
-        answer.push(sorted[k-1])
+
+    for(var i =0; i<commands.length; i++){
+        var temp = array.slice(commands[i][0] - 1,commands[i][1]);
+        temp = quickSort(temp);
+        var ans = temp.length != 1?temp[commands[i][2] - 1]:temp[0];
+        answer.push(ans);
     }
     return answer;
 }
+
+
+function quickSort (array) {
+    if (array.length < 2) {
+        return array;
+    }
+    const pivot = [array[0]];
+    const left = [];
+    const right = [];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < pivot) {
+            left.push(array[i]);
+        }
+        else if (array[i] > pivot) {
+            right.push(array[i]);
+        } else {
+            pivot.push(array[i]);
+        }
+    }
+    return quickSort(left).concat(pivot, quickSort(right));
+}
+
+
+
 
 </script>
 </html>
