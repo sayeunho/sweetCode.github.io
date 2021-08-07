@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  class 강아지{
+    constructor(타입, 칼라){
+      this.type = 타입;
+      this.color = 칼라;
+    }
+    한살먹기(){
+      if( this instanceof Cat) {
+        this.age++
+      }
+    }
+  }
+
+  var 강아지1 =  new 강아지('치와와', 'black');
+
+  class 고양이 extends 강아지 {
+    constructor(타입,칼라, 나이) {
+      super(타입, 칼라);
+      thia.age = 나이;
+    }
+  }
+
+  var 고양이1 = new 고양이('동네고양이', 'white', 5);
+
+</script>
+</html>

@@ -1,0 +1,20 @@
+I"�<h2 id="dom트리">DOM트리</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="dl">"</span><span class="s2">ko</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">간단한</span> <span class="nx">문서</span><span class="o">&lt;</span><span class="sr">/title</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="dl">"</span><span class="s2">UTF-8</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="sr">/head</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">DOM이란</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Document</span> <span class="nb">Object</span> <span class="nx">Model</span><span class="o">&lt;</span><span class="sr">/strong&gt;의 줄임말 입니다.&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/html</span><span class="err">&gt;
+</span></code></pre></div></div>
+<ul>
+  <li>웹 브라우저가 HTML문서를 읽어 들이면 document객체로 시작하는 DOM트리가 만들어짐.
+DOM트리를 구성하는 객체 하나를 노드(Node)라고 함.</li>
+</ul>
+
+<p><img src="../assets/img/domTree.jpeg" alt="" />;</p>
+:ET
