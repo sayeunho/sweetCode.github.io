@@ -7,7 +7,7 @@ summary: Description for this article
 date:   2021-07-07
 categories: posts
 tags: ['jekyll']
-author: redVi
+author: eunho
 bg: "african-penguins.jpg"
 ---
 

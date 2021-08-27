@@ -1,0 +1,139 @@
+I"="<h2 id="join">JOIN</h2>
+<h3 id="inner-조인">INNER 조인</h3>
+<ul>
+  <li>이너조인은 위와같이 우리가 조인하고자 하는 두개의 테이블에서 공통된 요소들을 통해 결합하는 조인방식.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span><span class="nx">SELECT</span> <span class="o">*</span> 
+<span class="nx">FROM</span>
+  <span class="nx">Reservation</span>
+<span class="nx">INNER</span> <span class="nx">JOIN</span> <span class="nx">Customer</span>
+<span class="nx">ON</span> <span class="nx">Reservation</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">Customer</span><span class="p">.</span><span class="nx">Name</span><span class="p">;</span>
+
+<span class="mi">2</span><span class="p">.</span> 
+<span class="nx">SELECT</span> <span class="o">*</span> 
+<span class="nx">FROM</span>
+  <span class="nx">Reservation</span>
+<span class="nx">JOIN</span> <span class="nx">Customer</span>
+<span class="nx">ON</span> <span class="nx">Reservation</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">Customer</span><span class="p">.</span><span class="nx">Name</span><span class="p">;</span>
+
+<span class="mi">3</span><span class="p">.</span>
+<span class="nx">SELECT</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">title</span> 
+<span class="nx">FROM</span> 
+  <span class="nx">girl_group</span> <span class="nx">AS</span> <span class="nx">gg</span>
+<span class="nx">JOIN</span> <span class="nx">song</span> <span class="nx">AS</span> <span class="nx">s</span>
+<span class="nx">ON</span> <span class="nx">s</span><span class="p">.</span><span class="nx">_id</span> <span class="o">=</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">hit_song_id</span><span class="p">;</span>
+
+<span class="mi">4</span><span class="p">.</span>
+<span class="nx">SELECT</span> 
+  <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span><span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span>
+<span class="nx">FROM</span> <span class="nx">EMPLOYEE</span>
+<span class="nx">JOIN</span> <span class="nx">DEPARTMENT</span> 
+<span class="nx">ON</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+</code></pre></div></div>
+
+<h3 id="outer-join">OUTER JOIN</h3>
+<p>아우터 조인의 종류
+1.레프트아우터조인
+2.라이트아우터 조인
+3.풀아우터조인</p>
+
+<ul>
+  <li>두테이블의 공통영역을 포함해 한쪽 테이블의 다른데이터를 포함하는 조인방식입니다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">1</span><span class="p">.</span> <span class="nx">left</span> <span class="nx">outer</span> <span class="nx">join</span>
+  <span class="nx">select</span> 
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span> <span class="k">from</span> <span class="nx">employee</span>
+  <span class="nx">left</span> <span class="nx">outer</span> <span class="nx">join</span> <span class="nx">department</span> 
+  <span class="nx">on</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+  <span class="mi">2</span><span class="p">.</span><span class="nx">rigth</span> <span class="nx">outer</span> <span class="nx">join</span>
+  <span class="nx">select</span> 
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span>
+    <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span>
+  <span class="k">from</span> 
+    <span class="nx">employee</span>
+  <span class="nx">right</span> <span class="nx">outer</span> <span class="nx">join</span> <span class="nx">department</span>
+  <span class="nx">on</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+  <span class="mi">3</span><span class="p">.</span><span class="nx">full</span> <span class="nx">outer</span> <span class="nx">join</span>
+  <span class="nx">select</span>  
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span>
+    <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span>
+  <span class="k">from</span> <span class="nx">employee</span>
+  <span class="nx">full</span> <span class="nx">outer</span> <span class="nx">join</span> <span class="nx">department</span> 
+  <span class="nx">on</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+</code></pre></div></div>
+<h3 id="크로스-조인">크로스 조인</h3>
+<ul>
+  <li>특정기준없이, 두 테이블간 가능한 모든 경우의 수에 대한 결합을 결과로 보여주는 방식입니다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">select</span> 
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span> <span class="k">from</span> <span class="nx">employee</span>
+  <span class="nx">cross</span> <span class="nx">join</span> <span class="nx">department</span>
+</code></pre></div></div>
+<h3 id="셀프조인self-join">셀프조인(SELF JOIN)</h3>
+<ul>
+  <li>셀프조인은 말그대로 자기 스스로를 결합시키는 조인입니다.
+조인을 할때 기본테이블 이외에 참조하는 테이블이 다른테이블이 아닌 자기 자신이라는 점이 중요함.</li>
+</ul>
+
+<h3 id="디자인패턴">디자인패턴</h3>
+<ol>
+  <li>싱글톤패턴
+    <ul>
+      <li>어떤 클래스가 오직하나의 객체만 갖도록 프로그램에 전반에 걸쳐 그객체 하나만 사용되도록 보장해야함</li>
+      <li>예) 전역객체를 구현해야하는 경우 사용
+그러나 단위테스트에 방해요인이 되기때문에 싫어함</li>
+    </ul>
+  </li>
+  <li>팩터리메서드
+    <ul>
+      <li>어떤클래스의 객체를 생성하기 위한 인터페이스를 제공하되,하위클래스에서 어떤 클래스를 생성할지 결정할수 있도록 도와준다.</li>
+      <li>예) Factory 메소드 자체에 대한 구현은 제공하지 않고 객체 생성 클래스를 abstract 로 선언하고 놔두는 것</li>
+    </ul>
+  </li>
+  <li>추상팩토리 패턴
+    <ul>
+      <li>객체를 생성할때 객체를 구성하는 부분을 추상화하여 여러 서브클래스가 상속을 통해 구현하여 구성하는 부분을 동일하게 유지하는 방법</li>
+    </ul>
+  </li>
+</ol>
+
+<p>예) 실제 만들어지는 객체는 각각의 하위 클래스에 해당하는 것이어도 client 가 참조하는 자료형은 상위의 추상클래스임을 의미</p>
+
+<ol>
+  <li>빌더패턴
+    <ul>
+      <li>복잡한 객체의 생성을 표현으로 부터 분리시키는 것.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="restapi">RESTAPI</h3>
+<ol>
+  <li>REST구성
+    <ul>
+      <li>자원 - URL</li>
+      <li>행위 - HTTP METHOD</li>
+      <li>표현 - Representations</li>
+    </ul>
+  </li>
+  <li>url규칙
+    <ul>
+      <li>리소스명은 동사보다 명사를 사용</li>
+      <li>소문자를 사용한다</li>
+      <li>계층관계를 나타낼때는 슬래시 구분자를 사용해야한다.</li>
+      <li>언더바를 대신 하이픈을 사용한다</li>
+      <li>마지막에 슬래시를 포함하지 않는다.</li>
+      <li>행위를 포함하지 않는다</li>
+      <li>자원에 대한 행위는 HTTP Method(GET,POST,PUT,DELETE) 로 표현한다.</li>
+    </ul>
+  </li>
+</ol>
+
+:ET

@@ -1,0 +1,63 @@
+I"<h2 id="join">JOIN</h2>
+<h3 id="inner-조인">INNER 조인</h3>
+<ul>
+  <li>이너조인은 위와같이 우리가 조인하고자 하는 두개의 테이블에서 공통된 요소들을 통해 결합하는 조인방식.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span><span class="nx">SELECT</span> <span class="o">*</span> 
+<span class="nx">FROM</span>
+  <span class="nx">Reservation</span>
+<span class="nx">INNER</span> <span class="nx">JOIN</span> <span class="nx">Customer</span>
+<span class="nx">ON</span> <span class="nx">Reservation</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">Customer</span><span class="p">.</span><span class="nx">Name</span><span class="p">;</span>
+
+<span class="mi">2</span><span class="p">.</span> 
+<span class="nx">SELECT</span> <span class="o">*</span> 
+<span class="nx">FROM</span>
+  <span class="nx">Reservation</span>
+<span class="nx">JOIN</span> <span class="nx">Customer</span>
+<span class="nx">ON</span> <span class="nx">Reservation</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">Customer</span><span class="p">.</span><span class="nx">Name</span><span class="p">;</span>
+
+<span class="mi">3</span><span class="p">.</span>
+<span class="nx">SELECT</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">title</span> 
+<span class="nx">FROM</span> 
+  <span class="nx">girl_group</span> <span class="nx">AS</span> <span class="nx">gg</span>
+<span class="nx">JOIN</span> <span class="nx">song</span> <span class="nx">AS</span> <span class="nx">s</span>
+<span class="nx">ON</span> <span class="nx">s</span><span class="p">.</span><span class="nx">_id</span> <span class="o">=</span> <span class="nx">gg</span><span class="p">.</span><span class="nx">hit_song_id</span><span class="p">;</span>
+
+<span class="mi">4</span><span class="p">.</span>
+<span class="nx">SELECT</span> 
+  <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span><span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span>
+<span class="nx">FROM</span> <span class="nx">EMPLOYEE</span>
+<span class="nx">JOIN</span> <span class="nx">DEPARTMENT</span> 
+<span class="nx">ON</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+</code></pre></div></div>
+
+<h3 id="outer-join">OUTER JOIN</h3>
+<p>아우터 조인의 종류
+1.레프트아우터조인
+2.라이트아우터 조인
+3.풀아우터조인</p>
+
+<ul>
+  <li>두테이블의 공통영역을 포함해 한쪽 테이블의 다른데이터를 포함하는 조인방식입니다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">1</span><span class="p">.</span> <span class="nx">left</span> <span class="nx">outer</span> <span class="nx">join</span>
+  <span class="nx">select</span> 
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span> <span class="k">from</span> <span class="nx">employee</span>
+  <span class="nx">left</span> <span class="nx">outer</span> <span class="nx">join</span> <span class="nx">department</span> 
+  <span class="nx">on</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+  <span class="mi">2</span><span class="p">.</span><span class="nx">rigth</span> <span class="nx">outer</span> <span class="nx">join</span>
+  <span class="nx">select</span> 
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">empName</span><span class="p">,</span>
+    <span class="nx">department</span><span class="p">.</span><span class="nx">deptName</span>
+  <span class="k">from</span> 
+    <span class="nx">employee</span>
+  <span class="nx">right</span> <span class="nx">outer</span> <span class="nx">join</span> <span class="nx">department</span>
+  <span class="nx">on</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">deptNo</span> <span class="o">=</span> <span class="nx">department</span><span class="p">.</span><span class="nx">deptNo</span>
+
+</code></pre></div></div>
+
+:ET
