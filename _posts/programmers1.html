@@ -46,4 +46,20 @@
     주어진 입력의 그림은 문제의 예시와 같습니다.
     출발 위치에서는 환승에 필요한 시간을 고려하지 않습니다. 따라서 2번 도시에서 3번 도시로 가기 위한 최소 시간은 B사의 열차를 이용해서 2의 시간에 바로 갈 수 있습니다. 
 </body>
+<script>
+
+
+    const solution = (P =[]) => {
+        let problems = P;
+        let result = 0;
+
+        while(problems.length > 0 ) {
+            const filtered = problems.filter((value, index) => !(problems.indexOf(value) === index))
+            result += problems.length - filtered.length -1 
+            problems = filtered;
+        }
+        return result
+    }
+    
+</script>
 </html>
